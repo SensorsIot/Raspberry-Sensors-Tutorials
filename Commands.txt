@@ -1,0 +1,49 @@
+Installation:
+
+sudo pip3 install --upgrade setuptools
+sudo apt-get install -y python3 git python3-pip
+pip3 install RPI.GPIO
+pip3 install adafruit-blinka
+
+If you want to use my examples:
+sudo git clone https://github.com/SensorsIot/Raspberry-Sensors-Tutorials.git
+
+1 wire enabled?
+lsmod | grep -i w1_
+
+Edit config.txt:
+sudo nano /boot/config.txt
+
+add:
+dtoverlay=w1-gpio,gpiopin=5
+
+reboot your Pi
+
+BME280 library:
+pip3 install adafruit-circuitpython-bme280
+
+Check I2C address:
+sudo i2cdetect -y 1 
+
+BNo055 library: 
+pip3 install adafruit-circuitpython-bno055
+
+Reduce i2c speed:
+sudo nano /boot/config.txt
+
+insert:
+dtparam=i2c_arm_baudrate=10000
+
+reboot your Pi
+
+Check SPI:
+ls /dev/spidev0.0
+ls /dev/spidev0.1
+
+MAX31855 Library:
+pip3 install adafruit-circuitpython-max31855
+
+US100 library:
+pip3 install adafruit-circuitpython-us100
+
+
